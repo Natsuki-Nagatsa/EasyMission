@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6875686162034310065}
   - component: {fileID: 733061975656813137}
   m_Layer: 0
-  m_Name: Meteo
+  m_Name: Meteo01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
