@@ -40,20 +40,51 @@ public class Countdown : MonoBehaviour
 
         //メテオムーブスクリプトのクリア変数がfalseだった時、
         if(MeteoMove.isClear == false){
-            //エネミームーブスクリプトのクリア変数がfalseだったら、
-            if(EnemyMove.isClear == false){
-                isOver = true;//オーバーフラグをtrueにして,
-                Invoke("LoadSceneMethod", 2.0f); //30秒後にDelayMethodを呼び出す
-            }
+            isOver = true;//オーバーフラグをtrueにして,
+            Invoke("LoadSceneMethod", 2.0f);
         }
-        
+
+        //エネミームーブスクリプトのクリア変数がfalseだったら、
+        if(EnemyMove01.isClear == false){
+            isOver = true;//オーバーフラグをtrueにして, 
+            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+        }
+
+        if(EnemyMove02.isClear == false){
+            isOver = true;//オーバーフラグをtrueにして,
+            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+        }
+
+        if(EnemyMove03.isClear == false){
+            isOver = true;//オーバーフラグをtrueにして,
+            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+        }
+
+        if(EnemyMove04.isClear == false){
+            isOver = true;//オーバーフラグをtrueにして,
+            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+        }
+    
         if(MeteoMove.isClear == true){
             isOver = false;//オーバーフラグをfalseにする
         }
 
-        if(EnemyMove.isClear == true){
+        if(EnemyMove01.isClear == true){
             isOver = false;//オーバーフラグをfalseにする
         }
+
+        if(EnemyMove02.isClear == true){
+            isOver = false;//オーバーフラグをfalseにする
+        }
+
+        if(EnemyMove03.isClear == true){
+            isOver = false;//オーバーフラグをfalseにする
+        }
+
+        if(EnemyMove04.isClear == true){
+            isOver = false;//オーバーフラグをfalseにする
+        }
+
     }
 
     //カウントダウンコルーチン。毎秒30からカウントダウンしていく
