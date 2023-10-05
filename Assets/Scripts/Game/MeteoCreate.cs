@@ -17,7 +17,7 @@ public class MeteoCreate : MonoBehaviour
     void GenRock()
     {
         //画面の上部端より少し上から、画面の左端から右端の間でランダムな位置に隕石を生成する
-        Instantiate(rockPrefab, new Vector3(-2.5f + 5 * Random.value, 5.5f, 0), Quaternion.identity);
+        Instantiate(rockPrefab, new Vector3(-2.25f + 5 * Random.value, 5.0f, 0), Quaternion.identity);
     }
 
     void DelayMethod()

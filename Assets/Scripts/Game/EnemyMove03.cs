@@ -11,6 +11,9 @@ public class EnemyMove03 : MonoBehaviour
     public static bool isClear = true; //クリアフラグ
     public AudioClip clip; //音声クリップ
     public GameObject explosionPrefab; //爆発エフェクトのプレハブ
+    public float moveSpeed = 1.0f; //移動速度
+    PointerEventData pointer; //ポインターイベントデータ
+
 
     private void start()
     {
@@ -19,7 +22,69 @@ public class EnemyMove03 : MonoBehaviour
 
     private void Update()
     {
+        transform.Translate(0, 0.05f, 0);
 
+        //左キーかAキーを押してる間、
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            LeftMove(); //左に移動する。
+        }
+
+        //右キーかDキーを押してる間、
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            RightMove(); //右に移動する。
+        }
+
+        //マウスの左クリックを押している間、画面の左側をクリックした場合は左に移動し、右側をクリックすると右に移動する。
+        if (Input.GetMouseButton(0))
+        {
+            //クリックした箇所にポインターを出して、ポインターに触れたオブジェクトをリスト化する
+            List<RaycastResult> results = new List<RaycastResult>();
+            pointer.position = Input.mousePosition;
+            EventSystem.current.RaycastAll(pointer, results);
+
+            //リスト化されたオブジェクトを、
+            foreach (RaycastResult target in results)
+            {
+                //デバッグログに表示さてた時、
+                Debug.Log(target.gameObject.name);
+                //LEFTというオブジェクトがあったら、
+                if (target.gameObject.name == "Left")
+                {
+                    LeftMove(); //レフトムーブを実行
+                }
+
+                //RIGHTというオブジェクトがあったら、
+                if (target.gameObject.name == "Right")
+                {
+                    RightMove(); //ライトムーブを実行
+                }
+            }
+        }
+
+        if (transform.position.y < -20.0f)
+        {
+            Destroy(gameObject); //画面外に出たら隕石を破棄。少し下に破棄ラインを指定して挙動を調節してる
+        }
+    }
+
+    //レフトムーブ。左に移動する処理
+    public void LeftMove()
+    {
+        if (transform.position.x > -2.25f)
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime); // 左に移動する
+        }
+    }
+
+    //ライトムーブ。右に移動する処理
+    public void RightMove()
+    {
+        if (transform.position.x < 2.25f)
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime); // 右に移動する
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)

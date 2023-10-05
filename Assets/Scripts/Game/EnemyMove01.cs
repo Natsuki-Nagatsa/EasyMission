@@ -12,7 +12,7 @@ public class EnemyMove01 : MonoBehaviour
     public AudioClip clip; //音声クリップ
     public GameObject explosionPrefab; //爆発エフェクトのプレハブ
 
-    float x = 0.1f; //横方向の移動速度
+    float x = 0.15f; //横方向の移動速度
 
     private void start()
     {
@@ -40,10 +40,10 @@ public class EnemyMove01 : MonoBehaviour
                 // 左方向に移動
                 x = -0.15f;
             }
-        }
-        
+
         // 横方向に移動
         transform.Translate(x, 0, 0);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)

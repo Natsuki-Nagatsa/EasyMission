@@ -21,7 +21,7 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         pointer = new PointerEventData(EventSystem.current);
-
+        
         _textCountdown.text = ""; //カウントダウンテキストに何も書かれていない状態にする
         isClear = false; //クリアフラグをfalseの状態にしておく
         isOver = false; //オーバーフラグをfalseの状態にしておく
@@ -40,29 +40,26 @@ public class Countdown : MonoBehaviour
 
         //メテオムーブスクリプトのクリア変数がfalseだった時、
         if(MeteoMove.isClear == false){
-            isOver = true;//オーバーフラグをtrueにして,
-            Invoke("LoadSceneMethod", 2.0f);
-        }
+            //エネミームーブスクリプトのクリア変数がfalseだったら、
+            if(EnemyMove01.isClear == false){
+                isOver = true;//オーバーフラグをtrueにして, 
+                Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+            }
 
-        //エネミームーブスクリプトのクリア変数がfalseだったら、
-        if(EnemyMove01.isClear == false){
-            isOver = true;//オーバーフラグをtrueにして, 
-            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
-        }
+            if(EnemyMove02.isClear == false){
+                isOver = true;//オーバーフラグをtrueにして,
+                Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+            }
 
-        if(EnemyMove02.isClear == false){
-            isOver = true;//オーバーフラグをtrueにして,
-            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
-        }
+            if(EnemyMove03.isClear == false){
+                isOver = true;//オーバーフラグをtrueにして,
+                Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+            }
 
-        if(EnemyMove03.isClear == false){
-            isOver = true;//オーバーフラグをtrueにして,
-            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
-        }
-
-        if(EnemyMove04.isClear == false){
-            isOver = true;//オーバーフラグをtrueにして,
-            Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+            if(EnemyMove04.isClear == false){
+                isOver = true;//オーバーフラグをtrueにして,
+                Invoke("LoadSceneMethod", 2.0f); //2秒後にDelayMethodを呼び出す
+            }
         }
     
         if(MeteoMove.isClear == true){

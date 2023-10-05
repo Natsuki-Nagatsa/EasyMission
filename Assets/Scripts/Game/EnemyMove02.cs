@@ -41,6 +41,11 @@ public class EnemyMove02 : MonoBehaviour
                 }
             }
         }
+        
+        if (transform.position.y < -20.0f)
+        {
+            Destroy(gameObject); //画面外に出たら隕石を破棄。少し下に破棄ラインを指定して挙動を調節してる
+        }
     }
 
     private void ResumeMovement()
