@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: f2d08280c69066847b03163c1ab6677f, type: 3}
   explosionPrefab: {fileID: 4171261976307631484, guid: 730311dc19e018b429ba8ade02f48866, type: 3}
+  moveSpeed: 2.5
 --- !u!58 &5159191073760657614
 CircleCollider2D:
   m_ObjectHideFlags: 0

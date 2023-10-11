@@ -20,7 +20,7 @@ public class EnemyCreate : MonoBehaviour
     void genENEMY()
     {
         //1から4までのランダムな整数を生成します。
-        int randomNumber = Random.Range(1, 4);//本来はRandom.Range(1, 5);
+        int randomNumber = 3;//Random.Range(1, 4);//本来はRandom.Range(1, 5);
         
         if(randomNumber == 1)
         {

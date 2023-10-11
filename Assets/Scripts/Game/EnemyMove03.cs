@@ -18,6 +18,7 @@ public class EnemyMove03 : MonoBehaviour
     private void start()
     {
         isClear = true; //クリアフラグを初期化。trueの状態に設定
+        pointer = new PointerEventData(EventSystem.current); //ポインターイベントデータを初期化
     }
 
     private void Update()

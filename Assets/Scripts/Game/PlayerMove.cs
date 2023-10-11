@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
             //リスト化されたオブジェクトを、
             foreach (RaycastResult target in results)
             {
-                //デバッグログに表示さてた時、
+                //デバッグログに表示させた時、
                 Debug.Log(target.gameObject.name);
                 //LEFTというオブジェクトがあったら、
                 if (target.gameObject.name == "Left")
